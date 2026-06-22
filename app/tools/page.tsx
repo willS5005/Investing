@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Pie } from "react-chartjs-2";
+import dynamic from "next/dynamic";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+const Pie = dynamic(() => import("react-chartjs-2").then((m) => m.Pie), { ssr: false });
 
 const formatCurrency = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
