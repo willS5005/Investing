@@ -1,101 +1,164 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const testimonials = [
+  {
+    name: "Jordan, 19",
+    text: "I paid off my first credit card and started investing — all within 3 months of joining FinStart.",
+  },
+  {
+    name: "Maya, 22",
+    text: "The budgeting calculator changed everything. I finally know where my money goes.",
+  },
+  {
+    name: "Tyler, 24",
+    text: "Investing 101 explained index funds better than anything I found on YouTube.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-white text-gray-900 font-sans">
+      {/* Nav */}
+      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <span className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>
+          FinStart
+        </span>
+        <div className="flex gap-4 items-center">
+          <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900">
+            Log in
+          </Link>
+          <Link
+            href="/signup"
+            className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Get Started Free
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </nav>
+
+      {/* Hero */}
+      <section className="text-center px-6 py-24 bg-gradient-to-b from-slate-50 to-white">
+        <h1 className="text-5xl font-extrabold leading-tight mb-6" style={{ color: "#1e3a5f" }}>
+          Take Control of Your Money
+          <br />
+          at Any Age
+        </h1>
+        <p className="text-xl text-gray-500 max-w-xl mx-auto mb-10">
+          Learn budgeting, investing, and wealth building — built for 16–28 year olds who are ready
+          to start.
+        </p>
+        <Link
+          href="/signup"
+          className="inline-block bg-emerald-600 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-700 transition"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Start for Free — No Credit Card
+        </Link>
+      </section>
+
+      {/* Free vs Premium */}
+      <section className="px-6 py-20 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "#1e3a5f" }}>
+          Everything You Need to Build Wealth
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Free */}
+          <div className="border border-gray-200 rounded-2xl p-8">
+            <div className="text-emerald-600 font-bold text-sm uppercase mb-2">Free</div>
+            <div className="text-3xl font-extrabold mb-4">$0 / month</div>
+            <ul className="space-y-3 text-gray-600">
+              {[
+                "5–10 beginner finance articles",
+                "Basic budgeting guide (PDF)",
+                "1 free budgeting calculator",
+                "Newsletter signup",
+                "Community preview (read-only)",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-emerald-500 mt-1">✓</span> {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/signup"
+              className="mt-8 block text-center border border-emerald-600 text-emerald-600 py-3 rounded-xl hover:bg-emerald-50 transition"
+            >
+              Get Started Free
+            </Link>
+          </div>
+
+          {/* Premium */}
+          <div className="rounded-2xl p-8 text-white" style={{ background: "#1e3a5f" }}>
+            <div className="font-bold text-sm uppercase mb-2 text-emerald-300">Premium</div>
+            <div className="text-3xl font-extrabold mb-1">$9.99 / month</div>
+            <div className="text-sm text-slate-300 mb-4">or $89 / year — save 26%</div>
+            <ul className="space-y-3 text-slate-200">
+              {[
+                "Full course library (investing, budgeting, wealth)",
+                "Premium e-books & guides",
+                "Advanced budgeting calculators",
+                "Private community forum",
+                "Monthly Q&A sessions",
+                "Exclusive tools & templates",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="text-emerald-400 mt-1">✓</span> {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/signup?plan=premium"
+              className="mt-8 block text-center bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-400 transition font-semibold"
+            >
+              Upgrade to Premium
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-slate-50 px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "#1e3a5f" }}>
+          Real Students. Real Results.
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {testimonials.map((t) => (
+            <div key={t.name} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-600 mb-4">&ldquo;{t.text}&rdquo;</p>
+              <div className="font-semibold text-sm" style={{ color: "#1e3a5f" }}>
+                — {t.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="text-center px-6 py-24">
+        <h2 className="text-4xl font-extrabold mb-6" style={{ color: "#1e3a5f" }}>
+          Your financial future starts today.
+        </h2>
+        <p className="text-gray-500 mb-8 text-lg">
+          Join thousands of young adults taking control of their money.
+        </p>
+        <Link
+          href="/signup"
+          className="inline-block bg-emerald-600 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-700 transition"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          Create Your Free Account
+        </Link>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-100 px-6 py-10 text-center text-sm text-gray-400">
+        <div className="flex justify-center gap-6 mb-4">
+          <Link href="/about" className="hover:text-gray-600">About</Link>
+          <Link href="/courses" className="hover:text-gray-600">Courses</Link>
+          <Link href="/tools" className="hover:text-gray-600">Tools</Link>
+          <Link href="/blog" className="hover:text-gray-600">Blog</Link>
+          <Link href="/login" className="hover:text-gray-600">Login</Link>
+        </div>
+        <p>© 2026 FinStart. Built for the next generation of investors.</p>
       </footer>
-    </div>
+    </main>
   );
 }
