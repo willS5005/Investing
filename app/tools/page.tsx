@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { createClient } from "@/lib/supabase";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -13,6 +14,15 @@ const formatCurrency = (n: number) =>
 
 export default function ToolsPage() {
   const [income, setIncome] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setIsLoggedIn(!!data.user);
+    });
+  }, []);
   const [calculated, setCalculated] = useState(false);
 
   const raw = parseFloat(income.replace(/,/g, "")) || 0;
@@ -251,13 +261,39 @@ export default function ToolsPage() {
 
             {/* CTA */}
             <div className="rounded-2xl p-8 text-center text-white" style={{ background: "#1e3a5f" }}>
-              <h2 className="text-2xl font-extrabold mb-2">Ready to put this plan into action?</h2>
-              <p className="text-slate-300 mb-6">
-                Create a free account to save your budget, track your progress, and access the Budgeting Basics course.
-              </p>
-              <Link href="/signup" className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold">
-                Save My Budget — It&apos;s Free
-              </Link>
+              {isLoggedIn ? (
+                saved ? (
+                  <>
+                    <div className="text-4xl mb-3">✅</div>
+                    <h2 className="text-2xl font-extrabold mb-2">Budget saved!</h2>
+                    <p className="text-slate-300 mb-6">Head to your dashboard to view your progress and continue learning.</p>
+                    <Link href="/dashboard" className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold">
+                      Go to Dashboard
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-extrabold mb-2">Ready to put this plan into action?</h2>
+                    <p className="text-slate-300 mb-6">Save your budget and track your progress from your dashboard.</p>
+                    <button
+                      onClick={() => setSaved(true)}
+                      className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold"
+                    >
+                      Save My Budget
+                    </button>
+                  </>
+                )
+              ) : (
+                <>
+                  <h2 className="text-2xl font-extrabold mb-2">Ready to put this plan into action?</h2>
+                  <p className="text-slate-300 mb-6">
+                    Create a free account to save your budget, track your progress, and access the Budgeting Basics course.
+                  </p>
+                  <Link href="/signup" className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold">
+                    Save My Budget — It&apos;s Free
+                  </Link>
+                </>
+              )}
             </div>
           </>
         )}
