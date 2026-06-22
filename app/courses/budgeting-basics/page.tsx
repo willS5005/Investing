@@ -630,7 +630,7 @@ export default function BudgetingBasicsPage() {
                     </button>
                   ) : (
                     <div>
-                      <p className="font-bold text-emerald-700 mb-4">🎉 You've completed Budgeting Basics!</p>
+                      <p className="font-bold text-emerald-700 mb-4">🎉 You&apos;ve completed Budgeting Basics!</p>
                       <Link href="/signup?plan=premium" className="inline-block bg-slate-800 text-white px-8 py-3 rounded-xl hover:bg-slate-700 transition font-semibold">
                         Unlock Premium Courses →
                       </Link>
