@@ -1,8 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase";
 
 const MONTHLY_PRICE_ID = "price_1TlJpGIDNA37hrc1TJWCXAYN";
 const YEARLY_PRICE_ID = "price_1TlJpGIDNA37hrc1PT2rC51I";
@@ -11,34 +10,15 @@ export default function PricingPage() {
   const router = useRouter();
   const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
   const [loading, setLoading] = useState(false);
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.access_token) {
-        setAccessToken(session.access_token);
-      }
-    });
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setAccessToken(session?.access_token ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
 
   const handleCheckout = async () => {
     setLoading(true);
     const priceId = billing === "monthly" ? MONTHLY_PRICE_ID : YEARLY_PRICE_ID;
 
-    if (!accessToken) {
-      router.push("/login?next=/pricing");
-      return;
-    }
-
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ priceId, accessToken }),
+      body: JSON.stringify({ priceId }),
     });
 
     const data = await res.json();
@@ -150,7 +130,7 @@ export default function PricingPage() {
               disabled={loading}
               className="w-full bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-400 transition font-semibold disabled:opacity-60"
             >
-              {loading ? "Loading..." : accessToken ? `Upgrade to Premium — ${billing === "monthly" ? "$9.99/mo" : "$89/yr"}` : "Log In to Upgrade"}
+              {loading ? "Loading..." : `Upgrade to Premium — ${billing === "monthly" ? "$9.99/mo" : "$89/yr"}`}
             </button>
             <p className="text-xs text-slate-400 text-center mt-3">Secure checkout via Stripe · Cancel anytime</p>
           </div>
