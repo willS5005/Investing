@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase";
 
 const MONTHLY_PRICE_ID = "price_1TlJpGIDNA37hrc1TJWCXAYN";
 const YEARLY_PRICE_ID = "price_1TlJpGIDNA37hrc1PT2rC51I";
@@ -15,10 +16,18 @@ export default function PricingPage() {
     setLoading(true);
     const priceId = billing === "monthly" ? MONTHLY_PRICE_ID : YEARLY_PRICE_ID;
 
+    const supabase = createClient();
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+      router.push("/login?next=/pricing");
+      return;
+    }
+
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ priceId }),
+      body: JSON.stringify({ priceId, accessToken: session.access_token }),
     });
 
     const data = await res.json();
