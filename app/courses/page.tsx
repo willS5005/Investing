@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getSubscription } from "@/lib/getSubscription";
+
+export const metadata: Metadata = {
+  title: "Personal Finance Courses",
+  description: "Short, practical finance courses for young adults. Learn budgeting, investing, wealth building, student loans, and first-job finance. Free and premium courses available.",
+  openGraph: {
+    title: "Personal Finance Courses | FinStart",
+    description: "Short, practical finance courses for young adults. Free and premium options available.",
+    url: "/courses",
+  },
+};
 
 const courses = [
   {

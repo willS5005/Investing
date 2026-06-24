@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "FinStart — Personal Finance for Young Adults",
+  description: "Free courses, tools, and guides that teach budgeting, investing, and wealth building to people in their 20s and 30s. Start free — no credit card needed.",
+  openGraph: {
+    title: "FinStart — Personal Finance for Young Adults",
+    description: "Free courses, tools, and guides that teach budgeting, investing, and wealth building to people in their 20s and 30s.",
+    url: "/",
+  },
+};
 
 const testimonials = [
   {

@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getSubscription } from "@/lib/getSubscription";
+
+export const metadata: Metadata = {
+  title: "Free Financial Tools & Calculators",
+  description: "Interactive financial calculators for young adults — budget calculator, investment growth calculator, net worth tracker, and loan payoff calculator.",
+  openGraph: {
+    title: "Free Financial Tools & Calculators | FinStart",
+    description: "Interactive financial calculators — budget, investment growth, net worth, and loan payoff.",
+    url: "/tools",
+  },
+};
 
 const tools = [
   {

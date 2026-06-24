@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Free Personal Finance Articles",
+  description: "Practical personal finance guides for young adults — budgeting, investing, student loans, credit, and more. Free, jargon-free, and actionable.",
+  openGraph: {
+    title: "Free Personal Finance Articles | FinStart",
+    description: "Practical personal finance guides for young adults — budgeting, investing, student loans, credit, and more.",
+    url: "/blog",
+  },
+};
 
 const articles = [
   {
