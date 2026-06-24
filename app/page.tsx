@@ -226,7 +226,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <Link href="/signup?plan=premium" className="inline-block bg-slate-800 text-white px-8 py-3 rounded-xl hover:bg-slate-700 transition font-semibold">
+            <Link href="/pricing" className="inline-block bg-slate-800 text-white px-8 py-3 rounded-xl hover:bg-slate-700 transition font-semibold">
               Unlock All Courses — $9.99/mo
             </Link>
           </div>
@@ -334,7 +334,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <Link href="/signup?plan=premium" className="block text-center bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-400 transition font-semibold">
+            <Link href="/pricing" className="block text-center bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-400 transition font-semibold">
               Upgrade to Premium
             </Link>
           </div>

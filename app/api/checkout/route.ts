@@ -26,12 +26,7 @@ export async function POST(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (error || !user) {
-    return NextResponse.json({
-      error: "Not authenticated",
-      debug_cookie_count: request.cookies.getAll().length,
-      debug_cookie_names: request.cookies.getAll().map((c) => c.name),
-      debug_supabase_error: error?.message ?? null,
-    }, { status: 401 });
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
   }
 
   const session = await stripe.checkout.sessions.create({

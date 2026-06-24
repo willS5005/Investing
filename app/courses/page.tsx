@@ -192,7 +192,7 @@ export default function CoursesPage() {
                   </div>
                   <div className="shrink-0 self-center">
                     <Link
-                      href="/signup?plan=premium"
+                      href="/pricing"
                       className="block bg-slate-800 text-white text-sm px-5 py-2 rounded-xl font-semibold hover:bg-slate-700 transition"
                     >
                       Unlock →
@@ -212,7 +212,7 @@ export default function CoursesPage() {
             <p className="text-emerald-300 font-semibold mb-6">$9.99/month or $89/year — cancel anytime</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/signup?plan=premium"
+                href="/pricing"
                 className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold"
               >
                 Upgrade to Premium
