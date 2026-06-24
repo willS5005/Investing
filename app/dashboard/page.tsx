@@ -43,7 +43,7 @@ export default function DashboardPage() {
       <nav className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
         <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500">{user?.email}</span>
+          <Link href="/account" className="text-sm text-gray-500 hover:text-gray-800">Account</Link>
           <button onClick={handleLogout} className="text-sm text-gray-500 hover:text-gray-800">Log out</button>
         </div>
       </nav>
