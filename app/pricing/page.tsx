@@ -8,7 +8,7 @@ const YEARLY_PRICE_ID = "price_1TlJpGIDNA37hrc1PT2rC51I";
 
 export default function PricingPage() {
   const router = useRouter();
-  const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
+  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
@@ -63,7 +63,7 @@ export default function PricingPage() {
               onClick={() => setBilling("yearly")}
               className={`px-5 py-2 rounded-lg text-sm font-semibold transition ${billing === "yearly" ? "bg-slate-800 text-white" : "text-gray-500 hover:text-gray-700"}`}
             >
-              Yearly <span className="text-emerald-500 ml-1">Save 26%</span>
+              Yearly <span className="text-emerald-500 ml-1">Save 17%</span>
             </button>
           </div>
         </div>
@@ -100,13 +100,13 @@ export default function PricingPage() {
             </div>
             <div className="text-emerald-300 font-bold text-sm uppercase mb-2">Premium</div>
             <div className="text-4xl font-extrabold mb-1">
-              {billing === "monthly" ? "$9.99" : "$7.42"}
+              {billing === "monthly" ? "$11.99" : "$9.99"}
             </div>
             <div className="text-slate-300 text-sm mb-1">
-              {billing === "monthly" ? "per month" : "per month, billed $89/year"}
+              {billing === "monthly" ? "per month" : "per month, billed $119.88/year"}
             </div>
             {billing === "yearly" && (
-              <div className="text-emerald-300 text-sm mb-6">You save $31/year vs monthly</div>
+              <div className="text-emerald-300 text-sm mb-6">You save $24/year vs monthly</div>
             )}
             {billing === "monthly" && <div className="mb-6" />}
             <ul className="space-y-3 text-slate-200 mb-8">
@@ -130,7 +130,7 @@ export default function PricingPage() {
               disabled={loading}
               className="w-full bg-emerald-500 text-white py-3 rounded-xl hover:bg-emerald-400 transition font-semibold disabled:opacity-60"
             >
-              {loading ? "Loading..." : `Upgrade to Premium — ${billing === "monthly" ? "$9.99/mo" : "$89/yr"}`}
+              {loading ? "Loading..." : `Upgrade to Premium — ${billing === "monthly" ? "$11.99/mo" : "$119.88/yr"}`}
             </button>
             <p className="text-xs text-slate-400 text-center mt-3">Secure checkout via Stripe · Cancel anytime</p>
           </div>
