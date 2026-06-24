@@ -1,29 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(request: NextRequest) {
   const { priceId } = await request.json();
 
-  const cookieStore = cookies();
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll();
+          return request.cookies.getAll();
         },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {}
-        },
+        setAll() {},
       },
     }
   );
@@ -34,7 +26,12 @@ export async function POST(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (error || !user) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    return NextResponse.json({
+      error: "Not authenticated",
+      debug_cookie_count: request.cookies.getAll().length,
+      debug_cookie_names: request.cookies.getAll().map((c) => c.name),
+      debug_supabase_error: error?.message ?? null,
+    }, { status: 401 });
   }
 
   const session = await stripe.checkout.sessions.create({

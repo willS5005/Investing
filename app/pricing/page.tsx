@@ -1,13 +1,11 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const MONTHLY_PRICE_ID = "price_1TlJpGIDNA37hrc1TJWCXAYN";
 const YEARLY_PRICE_ID = "price_1TlJpGIDNA37hrc1PT2rC51I";
 
 export default function PricingPage() {
-  const router = useRouter();
   const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +22,8 @@ export default function PricingPage() {
     const data = await res.json();
 
     if (res.status === 401) {
-      router.push("/login?next=/pricing");
+      alert("Debug info: " + JSON.stringify(data));
+      setLoading(false);
       return;
     }
 
