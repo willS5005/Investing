@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const MONTHLY_PRICE_ID = "price_1Tm2GEIDNA37hrc1bBPgoI0C";
+const MONTHLY_PRICE_ID = "price_1Tm2UGIDNA37hrc14cCgbkSj";
 const YEARLY_PRICE_ID = "price_1Tm2H9IDNA37hrc1CrCZ5vbF";
 
 export default function PricingPage() {
