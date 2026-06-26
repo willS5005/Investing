@@ -81,12 +81,12 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
-        <div className="flex items-center gap-4">
+      {/* Nav — auth pages use their own simple nav */}
+      <nav className="flex items-center justify-between px-5 py-4 bg-white border-b border-gray-100">
+        <Link href="/" className="text-xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
+        <div className="flex items-center gap-3">
           <Link href="/account" className="text-sm text-gray-500 hover:text-gray-800 transition">Account</Link>
-          <button onClick={handleLogout} className="text-sm text-gray-500 hover:text-gray-800 transition">Log out</button>
+          <button onClick={handleLogout} className="text-sm bg-slate-100 hover:bg-slate-200 text-gray-700 px-3 py-1.5 rounded-lg transition">Log out</button>
         </div>
       </nav>
 

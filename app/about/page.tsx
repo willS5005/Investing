@@ -46,19 +46,6 @@ const topics = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white sticky top-0 z-10">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
-        <div className="flex gap-4 items-center">
-          <Link href="/courses" className="text-sm text-gray-600 hover:text-gray-900 hidden md:block">Courses</Link>
-          <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900 hidden md:block">Blog</Link>
-          <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900">Log in</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-semibold">
-            Get Started Free
-          </Link>
-        </div>
-      </nav>
-
       {/* Hero */}
       <section className="text-center px-6 py-20 bg-gradient-to-b from-slate-50 to-white">
         <div className="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
@@ -162,34 +149,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="text-center px-6 py-24" style={{ background: "#1e3a5f" }}>
-        <h2 className="text-4xl font-extrabold text-white mb-4">
+      <section className="text-center px-5 py-16 md:py-24" style={{ background: "#1e3a5f" }}>
+        <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4">
           Ready to take control of your money?
         </h2>
-        <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto">
+        <p className="text-slate-300 text-base md:text-lg mb-8 max-w-xl mx-auto">
           Start with the free plan — no credit card needed. Upgrade when you&apos;re ready.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/signup" className="inline-block bg-emerald-500 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-400 transition">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link href="/signup" className="inline-block bg-emerald-500 text-white text-base md:text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-400 transition">
             Create Free Account
           </Link>
-          <Link href="/courses" className="inline-block border border-slate-400 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-slate-700 transition">
+          <Link href="/courses" className="inline-block border border-slate-400 text-white text-base md:text-lg font-semibold px-8 py-4 rounded-xl hover:bg-slate-700 transition">
             Browse Courses
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-100 px-6 py-10 text-center text-sm text-gray-400">
-        <div className="flex justify-center gap-6 mb-4">
-          <Link href="/" className="hover:text-gray-600">Home</Link>
-          <Link href="/courses" className="hover:text-gray-600">Courses</Link>
-          <Link href="/tools" className="hover:text-gray-600">Tools</Link>
-          <Link href="/blog" className="hover:text-gray-600">Blog</Link>
-          <Link href="/pricing" className="hover:text-gray-600">Pricing</Link>
-        </div>
-        <p>© 2026 FinStart. Built for the next generation of investors.</p>
-      </footer>
     </main>
   );
 }

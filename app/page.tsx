@@ -154,51 +154,34 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-gray-900 font-sans">
 
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100 sticky top-0 bg-white/95 backdrop-blur z-10">
-        <span className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</span>
-        <div className="hidden md:flex gap-6 text-sm text-gray-600">
-          <a href="#courses" className="hover:text-gray-900 transition">Courses</a>
-          <a href="#tools" className="hover:text-gray-900 transition">Tools</a>
-          <a href="#articles" className="hover:text-gray-900 transition">Articles</a>
-          <a href="#pricing" className="hover:text-gray-900 transition">Pricing</a>
-        </div>
-        <div className="flex gap-3 items-center">
-          <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900 transition">Log in</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-semibold">
-            Get Started Free
-          </Link>
-        </div>
-      </nav>
-
       {/* Hero */}
-      <section className="text-center px-6 py-24 bg-gradient-to-b from-slate-50 to-white">
-        <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-8">
+      <section className="text-center px-5 py-14 md:py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
           <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
           Built for ages 16–28 · Start completely free
         </div>
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 max-w-3xl mx-auto" style={{ color: "#1e3a5f" }}>
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight mb-5 max-w-3xl mx-auto" style={{ color: "#1e3a5f" }}>
           The Finance Education You Should Have Been Taught in School
         </h1>
-        <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-base md:text-xl text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed">
           FinStart teaches budgeting, investing, and wealth building through bite-sized courses, interactive tools,
           and plain-English guides — all built for young adults starting from zero.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
           <Link
             href="/signup"
-            className="inline-block bg-emerald-600 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-700 transition shadow-sm"
+            className="inline-block bg-emerald-600 text-white text-base md:text-lg font-semibold px-7 py-3.5 rounded-xl hover:bg-emerald-700 transition shadow-sm"
           >
             Start Learning Free
           </Link>
           <a
             href="#courses"
-            className="inline-block border border-gray-300 text-gray-700 text-lg font-semibold px-8 py-4 rounded-xl hover:bg-gray-50 transition"
+            className="inline-block border border-gray-300 text-gray-700 text-base md:text-lg font-semibold px-7 py-3.5 rounded-xl hover:bg-gray-50 transition"
           >
             Browse Courses
           </a>
         </div>
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+        <div className="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-gray-400">
           <span className="flex items-center gap-1.5"><span className="text-emerald-500">✓</span> No credit card needed</span>
           <span className="flex items-center gap-1.5"><span className="text-emerald-500">✓</span> Free course included</span>
           <span className="flex items-center gap-1.5"><span className="text-emerald-500">✓</span> Cancel anytime</span>
@@ -424,40 +407,21 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="text-center px-6 py-24" style={{ background: "#1e3a5f" }}>
-        <h2 className="text-4xl font-extrabold mb-4 text-white">
+      <section className="text-center px-5 py-16 md:py-24" style={{ background: "#1e3a5f" }}>
+        <h2 className="text-2xl md:text-4xl font-extrabold mb-4 text-white">
           Your financial future starts today.
         </h2>
-        <p className="text-slate-300 mb-8 text-lg max-w-xl mx-auto">
+        <p className="text-slate-300 mb-8 text-base md:text-lg max-w-xl mx-auto">
           Join thousands of young adults learning how to budget smarter, invest earlier, and build real wealth — starting from zero.
         </p>
         <Link
           href="/signup"
-          className="inline-block bg-emerald-500 text-white text-lg font-semibold px-10 py-4 rounded-xl hover:bg-emerald-400 transition shadow-lg"
+          className="inline-block bg-emerald-500 text-white text-base md:text-lg font-semibold px-8 py-4 rounded-xl hover:bg-emerald-400 transition shadow-lg"
         >
           Create Your Free Account
         </Link>
         <p className="text-slate-400 text-sm mt-4">No credit card required · Free forever plan available</p>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-100 px-6 py-12 bg-white">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div>
-            <div className="text-xl font-bold mb-1" style={{ color: "#1e3a5f" }}>FinStart</div>
-            <p className="text-xs text-gray-400">Personal finance education for the next generation.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-            <Link href="/courses" className="hover:text-gray-700 transition">Courses</Link>
-            <Link href="/tools" className="hover:text-gray-700 transition">Tools</Link>
-            <Link href="/blog" className="hover:text-gray-700 transition">Blog</Link>
-            <Link href="/pricing" className="hover:text-gray-700 transition">Pricing</Link>
-            <Link href="/login" className="hover:text-gray-700 transition">Login</Link>
-            <Link href="/signup" className="hover:text-gray-700 transition">Sign Up</Link>
-          </div>
-        </div>
-        <div className="text-center text-xs text-gray-300 mt-8">© 2026 FinStart. Built for the next generation of investors.</div>
-      </footer>
     </main>
   );
 }

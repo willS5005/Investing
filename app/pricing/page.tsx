@@ -38,18 +38,10 @@ export default function PricingPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <nav className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
-        <div className="flex gap-4">
-          <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900">Log in</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700">Get Started Free</Link>
-        </div>
-      </nav>
-
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold mb-4" style={{ color: "#1e3a5f" }}>Simple, Transparent Pricing</h1>
-          <p className="text-gray-500 text-lg">Start free. Upgrade when you&apos;re ready.</p>
+      <div className="max-w-4xl mx-auto px-5 py-10 md:py-16">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#1e3a5f" }}>Simple, Transparent Pricing</h1>
+          <p className="text-gray-500 text-base md:text-lg">Start free. Upgrade when you&apos;re ready.</p>
 
           {/* Billing toggle */}
           <div className="inline-flex items-center bg-white border border-gray-200 rounded-xl p-1 mt-8">

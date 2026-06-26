@@ -87,17 +87,9 @@ const articles = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white">
-      <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
-        <div className="flex gap-4">
-          <Link href="/courses" className="text-sm text-gray-600 hover:text-gray-900">Courses</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700">Get Started Free</Link>
-        </div>
-      </nav>
-
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-extrabold mb-4" style={{ color: "#1e3a5f" }}>Free Articles</h1>
-        <p className="text-gray-500 text-lg mb-12">
+      <div className="max-w-4xl mx-auto px-5 py-10 md:py-16">
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#1e3a5f" }}>Free Articles</h1>
+        <p className="text-gray-500 text-base md:text-lg mb-10">
           Practical financial guides for young professionals — clear, jargon-free, and actionable.
         </p>
 
@@ -108,20 +100,15 @@ export default function BlogPage() {
               href={`/blog/${article.slug}`}
               className="block border border-gray-200 rounded-2xl p-6 hover:border-emerald-300 hover:shadow-sm transition group"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs text-gray-400 font-medium">#{i + 1}</span>
-                    <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Free</span>
-                    <span className="text-xs text-gray-400">{article.readTime}</span>
-                  </div>
-                  <h2 className="text-lg font-bold group-hover:text-emerald-700 transition mb-2" style={{ color: "#1e3a5f" }}>
-                    {article.title}
-                  </h2>
-                  <p className="text-gray-500 text-sm">{article.description}</p>
-                </div>
-                <span className="text-emerald-500 text-xl mt-1">→</span>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs text-gray-400 font-medium">#{i + 1}</span>
+                <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Free</span>
+                <span className="text-xs text-gray-400">{article.readTime}</span>
               </div>
+              <h2 className="text-base md:text-lg font-bold group-hover:text-emerald-700 transition mb-2" style={{ color: "#1e3a5f" }}>
+                {article.title}
+              </h2>
+              <p className="text-gray-500 text-sm">{article.description}</p>
             </Link>
           ))}
         </div>
