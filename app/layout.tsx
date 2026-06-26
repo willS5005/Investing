@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -62,6 +63,45 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="border-t border-gray-100 bg-white px-6 py-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+              <div className="col-span-2 md:col-span-1">
+                <div className="text-xl font-bold mb-2" style={{ color: "#1e3a5f" }}>FinStart</div>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Personal finance education for the next generation. Learn budgeting, investing, and wealth building — for free.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase mb-3">Learn</div>
+                <div className="space-y-2">
+                  <Link href="/courses" className="block text-sm text-gray-500 hover:text-gray-800 transition">Courses</Link>
+                  <Link href="/blog" className="block text-sm text-gray-500 hover:text-gray-800 transition">Articles</Link>
+                  <Link href="/tools" className="block text-sm text-gray-500 hover:text-gray-800 transition">Tools</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase mb-3">Company</div>
+                <div className="space-y-2">
+                  <Link href="/about" className="block text-sm text-gray-500 hover:text-gray-800 transition">About</Link>
+                  <Link href="/pricing" className="block text-sm text-gray-500 hover:text-gray-800 transition">Pricing</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-bold text-gray-500 uppercase mb-3">Account</div>
+                <div className="space-y-2">
+                  <Link href="/login" className="block text-sm text-gray-500 hover:text-gray-800 transition">Log In</Link>
+                  <Link href="/signup" className="block text-sm text-gray-500 hover:text-gray-800 transition">Sign Up Free</Link>
+                  <Link href="/dashboard" className="block text-sm text-gray-500 hover:text-gray-800 transition">Dashboard</Link>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
+              <p>© 2026 FinStart. Built for the next generation of investors.</p>
+              <p>Questions? <a href="mailto:willsobotka2005@gmail.com" className="hover:text-gray-600 transition">Contact us</a></p>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
