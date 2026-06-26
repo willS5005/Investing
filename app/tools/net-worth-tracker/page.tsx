@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,7 +34,8 @@ export default function NetWorthTrackerPage() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(async ({ data: { user } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      const user = session?.user ?? null;
       if (!user) { router.push("/login"); return; }
       const { data } = await supabase.from("user_subscriptions").select("status").eq("user_id", user.id).single();
       if (data?.status !== "premium") { router.push("/pricing"); return; }
@@ -207,3 +208,4 @@ export default function NetWorthTrackerPage() {
     </main>
   );
 }
+

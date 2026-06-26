@@ -46,16 +46,17 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(async ({ data }) => {
-      if (!data.user) {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      const user = session?.user ?? null;
+      if (!user) {
         router.push("/login");
         return;
       }
-      setUser(data.user);
+      setUser(user);
       const { data: sub } = await supabase
         .from("user_subscriptions")
         .select("status")
-        .eq("user_id", data.user.id)
+        .eq("user_id", user.id)
         .single();
       setIsPremium(sub?.status === "premium");
       setLoading(false);

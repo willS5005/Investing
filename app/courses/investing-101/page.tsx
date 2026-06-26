@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -501,7 +501,8 @@ export default function Investing101Page() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(async ({ data: { user } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      const user = session?.user ?? null;
       if (!user) { router.push("/login"); return; }
       const { data } = await supabase
         .from("user_subscriptions")
@@ -683,3 +684,4 @@ export default function Investing101Page() {
     </main>
   );
 }
+
