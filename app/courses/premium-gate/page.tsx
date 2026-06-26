@@ -15,7 +15,7 @@ export default function PremiumGatePage() {
           href="/pricing"
           className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-emerald-400 transition mb-4"
         >
-          Upgrade to Premium — from $89/yr
+          Upgrade to Premium — from $12.99/mo
         </Link>
         <div className="mt-4">
           <Link href="/courses" className="text-sm text-gray-400 hover:text-gray-600">

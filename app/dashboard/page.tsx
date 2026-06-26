@@ -60,7 +60,7 @@ export default function DashboardPage() {
         <div className="rounded-2xl p-6 mb-10 flex items-center justify-between gap-6" style={{ background: "#1e3a5f" }}>
           <div>
             <div className="text-white font-bold text-lg mb-1">Unlock the full FinStart library</div>
-            <p className="text-slate-300 text-sm">Get all 5 courses, 4 tools, premium guides, and community access for $9.99/month.</p>
+            <p className="text-slate-300 text-sm">Get all 5 courses, 4 tools, premium guides, and community access for $12.99/month.</p>
           </div>
           <Link href="/pricing" className="shrink-0 bg-emerald-500 text-white px-6 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold text-sm">
             Upgrade to Premium

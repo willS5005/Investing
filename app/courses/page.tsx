@@ -270,7 +270,7 @@ export default async function CoursesPage() {
               <p className="text-slate-300 mb-2">
                 {premium.reduce((a, c) => a + c.lessons, 0)} lessons · Advanced tools · Private community · Monthly Q&amp;A
               </p>
-              <p className="text-emerald-300 font-semibold mb-6">$9.99/month or $89/year — cancel anytime</p>
+              <p className="text-emerald-300 font-semibold mb-6">$12.99/month or $119.99/year — cancel anytime</p>
               <Link
                 href="/pricing"
                 className="inline-block bg-emerald-500 text-white px-8 py-3 rounded-xl hover:bg-emerald-400 transition font-semibold"
