@@ -31,7 +31,7 @@ export default function PricingPage() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("Something went wrong. Please try again.");
+      alert(data.error || "Something went wrong. Please try again.");
       setLoading(false);
     }
   };
