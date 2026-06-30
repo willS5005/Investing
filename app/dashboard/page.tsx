@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
+import { useRequireAuth } from "@/lib/useAuth";
 
 const tips = [
   "Automating your savings on payday means you never have to think about it.",
@@ -39,29 +40,21 @@ const articles = [
 
 export default function DashboardPage() {
   const router = useRouter();
+  const { user: authUser, ready } = useRequireAuth();
   const [user, setUser] = useState<{ email?: string; user_metadata?: { full_name?: string } } | null>(null);
   const [isPremium, setIsPremium] = useState(false);
   const [loading, setLoading] = useState(true);
   const tip = tips[new Date().getDay() % tips.length];
 
   useEffect(() => {
+    if (!ready || !authUser) return;
     const supabase = createClient();
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      const user = session?.user ?? null;
-      if (!user) {
-        router.push("/login");
-        return;
-      }
-      setUser(user);
-      const { data: sub } = await supabase
-        .from("user_subscriptions")
-        .select("status")
-        .eq("user_id", user.id)
-        .single();
+    setUser(authUser);
+    supabase.from("user_subscriptions").select("status").eq("user_id", authUser.id).single().then(({ data: sub }) => {
       setIsPremium(sub?.status === "premium");
       setLoading(false);
     });
-  }, [router]);
+  }, [ready, authUser]);
 
   const handleLogout = async () => {
     const supabase = createClient();

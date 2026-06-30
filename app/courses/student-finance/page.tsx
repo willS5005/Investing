@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
+import { useRequireAuth } from "@/lib/useAuth";
 
 const lessons = [
   {
@@ -170,16 +171,15 @@ export default function StudentFinancePage() {
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [checking, setChecking] = useState(true);
 
+  const { user, ready } = useRequireAuth();
   useEffect(() => {
+    if (!ready || !user) return;
     const supabase = createClient();
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      const user = session?.user ?? null;
-      if (!user) { router.push("/login"); return; }
-      const { data } = await supabase.from("user_subscriptions").select("status").eq("user_id", user.id).single();
+    supabase.from("user_subscriptions").select("status").eq("user_id", user.id).single().then(({ data }) => {
       if (data?.status !== "premium") { router.push("/courses/premium-gate"); return; }
       setChecking(false);
     });
-  }, [router]);
+  }, [ready, user, router]);
 
   if (checking) return <main className="min-h-screen bg-slate-50 flex items-center justify-center"><div className="text-gray-400 text-sm">Loading...</div></main>;
 
@@ -291,4 +291,5 @@ export default function StudentFinancePage() {
     </main>
   );
 }
+
 

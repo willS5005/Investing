@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
+import { useRequireAuth } from "@/lib/useAuth";
 
 type Subscription = {
   status: string;
@@ -12,32 +13,21 @@ type Subscription = {
 
 export default function AccountPage() {
   const router = useRouter();
+  const { user: authUser, ready } = useRequireAuth();
   const [email, setEmail] = useState<string | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [loading, setLoading] = useState(true);
   const [portalLoading, setPortalLoading] = useState(false);
 
   useEffect(() => {
+    if (!ready || !authUser) return;
     const supabase = createClient();
-
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      const user = session?.user ?? null;
-      if (!user) {
-        router.push("/login");
-        return;
-      }
-      setEmail(user.email ?? null);
-
-      const { data } = await supabase
-        .from("user_subscriptions")
-        .select("status, stripe_customer_id, updated_at")
-        .eq("user_id", user.id)
-        .single();
-
+    setEmail(authUser.email ?? null);
+    supabase.from("user_subscriptions").select("status, stripe_customer_id, updated_at").eq("user_id", authUser.id).single().then(({ data }) => {
       setSubscription(data);
       setLoading(false);
     });
-  }, [router]);
+  }, [ready, authUser]);
 
   const handleSignOut = async () => {
     const supabase = createClient();
