@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useSession } from "./SessionProvider";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user } = useSession();
 
   return (
     <nav className="sticky top-0 z-20 bg-white border-b border-gray-100">
@@ -21,10 +23,18 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex gap-3 items-center">
-          <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900 transition">Log in</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-semibold">
-            Get Started Free
-          </Link>
+          {user ? (
+            <Link href="/dashboard" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-semibold">
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm text-gray-600 hover:text-gray-900 transition">Log in</Link>
+              <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-semibold">
+                Get Started Free
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -65,12 +75,20 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-3 border-t border-gray-100 flex flex-col gap-2">
-            <Link href="/login" onClick={() => setOpen(false)} className="block text-center text-sm text-gray-600 py-2.5 rounded-lg hover:bg-slate-50 transition">
-              Log in
-            </Link>
-            <Link href="/signup" onClick={() => setOpen(false)} className="block text-center text-sm bg-emerald-600 text-white py-2.5 rounded-lg hover:bg-emerald-700 transition font-semibold">
-              Get Started Free
-            </Link>
+            {user ? (
+              <Link href="/dashboard" onClick={() => setOpen(false)} className="block text-center text-sm bg-emerald-600 text-white py-2.5 rounded-lg hover:bg-emerald-700 transition font-semibold">
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link href="/login" onClick={() => setOpen(false)} className="block text-center text-sm text-gray-600 py-2.5 rounded-lg hover:bg-slate-50 transition">
+                  Log in
+                </Link>
+                <Link href="/signup" onClick={() => setOpen(false)} className="block text-center text-sm bg-emerald-600 text-white py-2.5 rounded-lg hover:bg-emerald-700 transition font-semibold">
+                  Get Started Free
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}
