@@ -9,22 +9,20 @@ export function useSession() {
   return useContext(SessionContext);
 }
 
-export default function SessionProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+export default function SessionProvider({
+  children,
+  initialUser,
+}: {
+  children: React.ReactNode;
+  initialUser: User | null;
+}) {
+  const [user, setUser] = useState<User | null>(initialUser);
 
   useEffect(() => {
     const supabase = createClient();
-
-    // Load session immediately from storage
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
-
-    // Keep in sync when auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
-
     return () => subscription.unsubscribe();
   }, []);
 
