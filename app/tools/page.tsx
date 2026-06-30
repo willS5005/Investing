@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getSubscription } from "@/lib/getSubscription";
+import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Free Financial Tools & Calculators",
@@ -52,14 +53,7 @@ export default async function ToolsPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <nav className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-100">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
-        <div className="flex gap-4">
-          <Link href="/blog" className="text-sm text-gray-600 hover:text-gray-900">Articles</Link>
-          <Link href="/courses" className="text-sm text-gray-600 hover:text-gray-900">Courses</Link>
-          <Link href="/signup" className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700">Get Started Free</Link>
-        </div>
-      </nav>
+      <Navbar />
 
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="text-center mb-14">
