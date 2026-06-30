@@ -11,15 +11,20 @@ export function useRequireAuth() {
 
   useEffect(() => {
     const supabase = createClient();
+
+    // Check session immediately from storage (fast, no network)
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        setUser(session.user);
+        setReady(true);
+      } else {
+        router.push("/login");
+      }
+    });
+
+    // Keep in sync for sign-out / token refresh
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "INITIAL_SESSION") {
-        if (!session) {
-          router.push("/login");
-        } else {
-          setUser(session.user);
-          setReady(true);
-        }
-      } else if (event === "SIGNED_OUT") {
+      if (event === "SIGNED_OUT") {
         router.push("/login");
       } else if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
         if (session) {
@@ -28,6 +33,7 @@ export function useRequireAuth() {
         }
       }
     });
+
     return () => subscription.unsubscribe();
   }, [router]);
 
