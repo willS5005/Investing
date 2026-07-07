@@ -20,8 +20,15 @@ export default function SessionProvider({
 
   useEffect(() => {
     const supabase = createClient();
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+        setUser(session?.user ?? null);
+      } else if (event === "SIGNED_OUT") {
+        setUser(null);
+      }
+      // Intentionally ignore INITIAL_SESSION — it can return null client-side
+      // even when the user is logged in (SSR cookie mismatch), and would
+      // override the correct initialUser passed from the server.
     });
     return () => subscription.unsubscribe();
   }, []);
