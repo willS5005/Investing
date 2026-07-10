@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Free Personal Finance Articles",
@@ -82,11 +83,68 @@ const articles = [
     keyword: "how to build credit at 18",
     readTime: "7 min read",
   },
+  {
+    slug: "how-to-negotiate-your-salary",
+    title: "How to Negotiate Your Salary (And Why Most People Don't)",
+    description: "Salary negotiation is one of the highest-ROI skills you can develop. Here's a simple, proven approach that works — even if you hate conflict.",
+    keyword: "how to negotiate salary",
+    readTime: "7 min read",
+  },
+  {
+    slug: "compound-interest-explained",
+    title: "Compound Interest Explained: Why Time Is Your Most Valuable Asset",
+    description: "Compound interest is the most powerful force in personal finance. Here's how it works, with real numbers that show why starting early matters so much.",
+    keyword: "compound interest explained",
+    readTime: "5 min read",
+  },
+  {
+    slug: "what-is-a-401k",
+    title: "What Is a 401(k)? A Plain-English Guide for First-Time Employees",
+    description: "Your employer offers a 401(k) — but what is it, how does it work, and how much should you contribute? Here's everything you need to know.",
+    keyword: "what is a 401k",
+    readTime: "6 min read",
+  },
+  {
+    slug: "renting-vs-buying-a-home",
+    title: "Renting vs. Buying a Home in Your 20s: What the Math Actually Says",
+    description: "Everyone says buying is better than renting. The math is more complicated — and for many people in their 20s, renting is the smarter financial move.",
+    keyword: "renting vs buying home 20s",
+    readTime: "8 min read",
+  },
+  {
+    slug: "how-to-invest-in-your-20s",
+    title: "How to Invest in Your 20s: A Step-by-Step Starter Plan",
+    description: "You don't need a lot of money or expertise to start investing. Here's a clear, step-by-step plan built for people in their 20s starting from zero.",
+    keyword: "how to invest in your 20s",
+    readTime: "7 min read",
+  },
+  {
+    slug: "lifestyle-inflation",
+    title: "Lifestyle Inflation: The Silent Killer of Wealth in Your 20s and 30s",
+    description: "Most people earn more as they get older but never feel richer. The culprit is lifestyle inflation — and recognizing it is the key to building wealth.",
+    keyword: "lifestyle inflation",
+    readTime: "5 min read",
+  },
+  {
+    slug: "understanding-taxes-first-job",
+    title: "Understanding Your Taxes at Your First Job: W-4, Withholding, and Refunds",
+    description: "Taxes at your first job are confusing. Here's a plain-English breakdown of W-4 forms, withholding, tax brackets, and refunds.",
+    keyword: "taxes first job explained",
+    readTime: "6 min read",
+  },
+  {
+    slug: "how-to-save-money-in-your-20s",
+    title: "How to Actually Save Money in Your 20s (Without Giving Up Everything Fun)",
+    description: "Saving money doesn't mean cutting out everything you enjoy. Here's a realistic approach to saving more without feeling deprived.",
+    keyword: "how to save money in your 20s",
+    readTime: "6 min read",
+  },
 ];
 
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white">
+      <Navbar />
       <div className="max-w-4xl mx-auto px-5 py-10 md:py-16">
         <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#1e3a5f" }}>Free Articles</h1>
         <p className="text-gray-500 text-base md:text-lg mb-10">
@@ -116,3 +174,4 @@ export default function BlogPage() {
     </main>
   );
 }
+

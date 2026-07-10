@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Navbar from "@/app/components/Navbar";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const article = articles[params.slug];
@@ -795,6 +796,701 @@ If you're a student without significant income, two options:
 [Monitor your credit progress with FinStart →](/signup)
     `,
   },
+
+  "how-to-negotiate-your-salary": {
+    title: "How to Negotiate Your Salary (And Why Most People Don't)",
+    description: "Salary negotiation is one of the highest-ROI skills you can develop. Here's a simple, proven approach that works — even if you hate conflict.",
+    readTime: "7 min read",
+    content: `
+## The Uncomfortable Truth About Salaries
+
+Most people accept the first number a company offers. That single decision — made in an uncomfortable moment — can cost them tens of thousands of dollars over their career.
+
+Salaries compound. A $5,000 raise at 25 doesn't just add $5,000 this year. It raises the floor for your next job, your next raise, and your lifetime earnings trajectory. Research suggests that people who negotiate consistently earn $1 million more over a 45-year career than those who don't.
+
+The company expects you to negotiate. Recruiters have a range. You're almost never at the top of it.
+
+## When to Negotiate
+
+Always negotiate a job offer. Never negotiate during the interview process itself — wait until you have a written offer.
+
+The sequence:
+1. Receive the written offer
+2. Express enthusiasm for the role
+3. Ask for 24–48 hours to review
+4. Come back with a counter
+
+Never negotiate in the moment of receiving the offer. You need time to research, think, and prepare your response.
+
+## Research First: Know Your Number
+
+Walk into negotiation with data, not feelings. Sources to find market salary data:
+
+- **Levels.fyi** — tech roles, very detailed
+- **Glassdoor** — broad, salary ranges by company
+- **LinkedIn Salary** — filters by title, location, experience
+- **Bureau of Labor Statistics** — government data, free
+- **Peers** — ask people in similar roles what they make
+
+Find the 75th percentile for your role, location, and experience level. That's your target. Not the median — you're not average.
+
+## The Exact Script
+
+When the recruiter shares the offer:
+
+*"Thank you so much — I'm really excited about this opportunity and the team. I'd love to take 24 hours to review the full package before I respond."*
+
+Then, when you come back:
+
+*"I've reviewed the offer carefully, and I'm genuinely excited about the role. Based on my research into market rates for this position in [city], and given my [specific experience/skill], I was hoping we could get closer to $[your number]. Is there flexibility there?"*
+
+Then stop talking. Silence is your friend.
+
+## What They Might Say — and How to Respond
+
+**"That's the top of our range."**
+Ask about other levers: signing bonus, extra PTO, earlier performance review, remote flexibility, equity.
+
+**"Let me check with my manager."**
+Good sign. They're trying to make it work.
+
+**"We can't move on base, but we can offer a $X signing bonus."**
+Often acceptable — though signing bonuses don't compound into future salaries the way base pay does.
+
+**"We need an answer by end of day."**
+Rare and usually a pressure tactic. Most companies have more flexibility than that deadline suggests.
+
+## What to Negotiate Beyond Base Salary
+
+- **Signing bonus** — one-time, doesn't affect base
+- **Remote work days** — worth real dollars in commute savings
+- **Start date** — a week of PTO is worth money
+- **Title** — affects future negotiating leverage
+- **Performance review timing** — ask for a 6-month review instead of 12
+- **Professional development budget**
+
+## The Worst That Happens
+
+Companies virtually never rescind an offer because you negotiated professionally. The absolute worst realistic outcome is they say no and you're back to the original offer.
+
+The upside? Thousands of dollars annually, for the rest of your career.
+
+Negotiate every time.
+
+[Learn more money skills in our First Job Finance course →](/courses/first-job-finance)
+    `,
+  },
+
+  "compound-interest-explained": {
+    title: "Compound Interest Explained: Why Time Is Your Most Valuable Asset",
+    description: "Compound interest is the most powerful force in personal finance. Here's how it works, with real numbers that show why starting early matters so much.",
+    readTime: "5 min read",
+    content: `
+## The Eighth Wonder of the World
+
+Albert Einstein allegedly called compound interest the eighth wonder of the world. Whether he said it or not, the math backs it up.
+
+Compound interest is interest earned on interest. It sounds simple, but the effect over decades is genuinely extraordinary — and understanding it changes how you think about every financial decision.
+
+## Simple vs. Compound Interest
+
+**Simple interest** grows linearly. You earn interest only on your original deposit.
+
+$10,000 at 7% simple interest:
+- Year 1: $10,700
+- Year 10: $17,000
+- Year 30: $31,000
+
+**Compound interest** grows exponentially. You earn interest on your original deposit AND on all the interest you've already earned.
+
+$10,000 at 7% compound interest (compounded annually):
+- Year 1: $10,700
+- Year 10: $19,672
+- Year 30: $76,123
+
+Same starting amount. Same rate. 30 years later: $76,123 vs. $31,000.
+
+That's the power of compounding.
+
+## The Rule of 72
+
+A quick mental math trick: divide 72 by your annual return rate to find how many years it takes to double your money.
+
+- At 6% return: money doubles every 12 years
+- At 7% return: money doubles every ~10 years
+- At 10% return: money doubles every ~7 years
+
+$10,000 invested at 7% for 30 years doubles roughly 3 times:
+$10,000 → $20,000 → $40,000 → $80,000
+
+## The Real Power: Starting Early
+
+This is where most people underestimate compounding. The difference between starting at 22 vs. 32 is not 10 years of contributions — it's decades of exponential growth.
+
+**Alex starts at 22, invests $300/month until 65 (43 years):**
+Total contributed: $154,800
+Portfolio at 65 (7% return): ~$1,060,000
+
+**Jordan starts at 32, invests $300/month until 65 (33 years):**
+Total contributed: $118,800
+Portfolio at 65 (7% return): ~$510,000
+
+Alex contributed only $36,000 more than Jordan. But ends up with $550,000 more.
+
+Those 10 extra years of compounding are worth more than all of Jordan's contributions combined.
+
+## The Enemy of Compounding: Fees
+
+A 1% annual fee sounds tiny. Over 30 years, it costs you roughly 25% of your final portfolio.
+
+$100,000 invested for 30 years at 7%:
+- No fees: $761,226
+- 1% annual fee: $574,349
+- Difference: $186,877
+
+This is why index funds (0.03% fees) beat actively managed funds (1–2% fees) over long time horizons. The return difference is almost never worth the fee difference.
+
+## How to Put Compounding to Work
+
+1. **Start now** — even $50/month at 22 matters more than $200/month at 32
+2. **Automate contributions** — remove the decision from the equation
+3. **Minimize fees** — use low-cost index funds
+4. **Don't withdraw early** — every dollar pulled out loses all its future compounding
+5. **Reinvest dividends** — most brokerage accounts do this automatically
+
+## The Uncomfortable Math
+
+If you're 25 and not investing yet, you've already given up some of your most valuable compounding years. But you still have more compounding runway than you'll have at 35.
+
+The best time to start was yesterday. The second best time is today.
+
+[Start learning how to invest in our Investing 101 course →](/courses/investing-101)
+    `,
+  },
+
+  "what-is-a-401k": {
+    title: "What Is a 401(k)? A Plain-English Guide for First-Time Employees",
+    description: "Your employer offers a 401(k) — but what is it, how does it work, and how much should you contribute? Here's everything you need to know.",
+    readTime: "6 min read",
+    content: `
+## The Account You Probably Have But Don't Understand
+
+When you start a new job, someone from HR hands you a benefits packet and mentions something called a 401(k). Most people nod, sign the forms, and move on without fully understanding what they just enrolled in.
+
+That's a mistake — because the 401(k) is one of the most powerful wealth-building tools available to working Americans, and the decisions you make early matter for decades.
+
+## What a 401(k) Actually Is
+
+A 401(k) is a retirement savings account offered through your employer. You contribute money directly from your paycheck — before it's taxed — and invest it in funds inside the account. It grows tax-free until you withdraw it in retirement (after age 59½).
+
+The name comes from the section of the IRS tax code that created it. Not exactly inspiring, but the tax benefits are real.
+
+## The Tax Advantage
+
+Traditional 401(k): contributions reduce your taxable income today.
+
+If you earn $60,000 and contribute $6,000 to your 401(k), you only pay income tax on $54,000. At a 22% tax rate, that's $1,320 saved in taxes this year alone.
+
+The money grows tax-free inside the account. You pay taxes when you withdraw in retirement — ideally at a lower tax rate than you're at now.
+
+**Roth 401(k):** some employers offer this variant. You contribute after-tax dollars, but withdrawals in retirement are completely tax-free. Generally better if you expect to be in a higher tax bracket in retirement.
+
+## The Employer Match: Free Money
+
+Many employers match a percentage of your 401(k) contributions. This is the single best return on investment available to you.
+
+**Common match structures:**
+- 100% match up to 3% of salary
+- 50% match up to 6% of salary
+
+**Example:** You earn $55,000 and your employer matches 100% up to 4%.
+
+If you contribute 4% ($2,200), your employer adds another $2,200. That's an instant 100% return on your contribution — before any market gains.
+
+**Never leave an employer match on the table.** Contributing less than the match threshold is turning down free compensation.
+
+## How Much to Contribute
+
+Priority order:
+1. **Contribute enough to get the full employer match** — always, no exceptions
+2. **Max out a Roth IRA** ($7,000/year limit in 2024 if under 50)
+3. **Increase 401(k) contributions** toward the annual limit ($23,000 in 2024)
+
+If you can only afford step 1 right now, that's fine. The match alone is powerful.
+
+## What to Invest In
+
+Most 401(k) plans offer a menu of mutual funds. For most people starting out:
+
+**Target-date fund** — pick the fund with the year closest to when you turn 65. It automatically adjusts its allocation (more stocks when young, more bonds as you age). Simple, diversified, hands-off.
+
+**If you want more control:** a simple three-fund portfolio works:
+- US total market index fund (60%)
+- International index fund (30%)
+- Bond index fund (10%)
+
+Avoid high-fee actively managed funds. Look at the expense ratio — anything above 0.5% is too high.
+
+## What Happens When You Leave a Job
+
+Your 401(k) money is yours. When you leave, you have options:
+
+1. **Leave it** with the old employer's plan (if allowed)
+2. **Roll it over** to your new employer's 401(k)
+3. **Roll it over** to an IRA (usually the most flexible option)
+4. **Cash it out** — almost always a bad idea (taxes + 10% penalty)
+
+## Key Numbers for 2024
+
+- Contribution limit: $23,000/year
+- Catch-up contribution (50+): additional $7,500
+- Early withdrawal penalty: 10% plus income taxes
+- Required minimum distributions begin at age 73
+
+## The Bottom Line
+
+Your 401(k) is not complicated once you understand the basics. Contribute at least enough to get your full employer match. Choose low-cost index funds or a target-date fund. Increase contributions as your income grows.
+
+Time in the market is everything. The earlier you start, the longer compounding has to work.
+
+[Explore our First Job Finance course for more →](/courses/first-job-finance)
+    `,
+  },
+
+  "renting-vs-buying-a-home": {
+    title: "Renting vs. Buying a Home in Your 20s: What the Math Actually Says",
+    description: "Everyone says buying is better than renting. The math is more complicated — and for many people in their 20s, renting is the smarter financial move.",
+    readTime: "8 min read",
+    content: `
+## The Myth of Renting as Throwing Money Away
+
+You've heard it before: renting is throwing money away. Every dollar you pay in rent builds someone else's equity, not yours.
+
+This sounds logical. It's also incomplete — and for a lot of people in their 20s, it leads to a decision that costs them more money than renting would have.
+
+Buying a home is not automatically better than renting. Whether it makes sense depends on your timeline, your local market, your financial situation, and a set of hidden costs most people ignore.
+
+## The Real Costs of Homeownership
+
+When you buy a home, the mortgage payment is only part of the cost. The true cost of owning includes:
+
+**Upfront costs:**
+- Down payment: typically 10–20% of purchase price
+- Closing costs: 2–5% of the loan amount
+- Moving/setup costs
+
+On a $300,000 home with 10% down: that's $30,000 down payment + $7,500 in closing costs = $37,500 before you make a single mortgage payment.
+
+**Ongoing costs:**
+- Mortgage principal and interest
+- Property taxes (typically 1–2% of home value per year)
+- Homeowners insurance
+- PMI if down payment is under 20%
+- Maintenance (budget 1% of home value per year)
+- HOA fees (if applicable)
+
+A $300,000 home might cost you $2,200/month in mortgage — but add taxes, insurance, and maintenance and you're closer to $2,900–$3,200/month in true costs.
+
+## The Break-Even Timeline
+
+The big question isn't whether buying builds equity — it does. The question is: how long do you need to stay before buying beats renting financially?
+
+Most analyses put the break-even point at **5–7 years** in a normal market. Before that, the transaction costs of buying and selling (agent commissions, closing costs, potential price fluctuations) often make renting cheaper.
+
+**If you're not confident you'll stay in one place for 5+ years, renting is usually the better financial decision.**
+
+## When Renting Makes Sense
+
+- You might relocate for a career opportunity
+- You're in a high cost-of-living market where price-to-rent ratios are extreme
+- You don't have a 10–20% down payment saved
+- You have high-interest debt to pay off first
+- You're not sure about the city, neighborhood, or your life situation
+
+Flexibility has real value that's hard to quantify. Taking a job opportunity in another city can add $20,000–$50,000 to your lifetime earnings. Owning a home makes that mobility harder.
+
+## When Buying Makes Sense
+
+- You plan to stay in one city for 5+ years
+- You have a down payment of 10–20% saved (without emptying your emergency fund)
+- Your mortgage payment would be comparable to what you'd pay in rent
+- You have stable income and job security
+- The local price-to-rent ratio is reasonable
+
+## The Price-to-Rent Ratio
+
+A quick way to compare buying vs. renting in any market:
+
+Divide the home price by annual rent for a comparable property.
+
+- Ratio below 15: buying is likely the better deal
+- Ratio 15–20: it depends on your situation
+- Ratio above 20: renting is often smarter financially
+
+**Example:** $400,000 home, comparable rental costs $1,800/month ($21,600/year)
+Ratio: 400,000 / 21,600 = **18.5** — in the gray zone
+
+In expensive cities like San Francisco or NYC, this ratio commonly exceeds 30–40, which is why many financially sophisticated people in those cities rent indefinitely.
+
+## What to Do With the Difference
+
+One of the most underappreciated aspects of the rent vs. buy debate: if renting costs you $800/month less than owning, and you invest that $800/month in index funds instead — you may come out ahead financially even without building home equity.
+
+The math depends on stock returns vs. home appreciation rates in your specific market. Over long periods, the S&P 500 has returned roughly 10% annually. Home appreciation has averaged 3–4% nationally (though it varies enormously by location).
+
+## The Bottom Line
+
+Buying a home is a life decision as much as a financial one. If you want stability, space, the ability to customize, and a community to put down roots in — and you're financially ready — buying can be deeply fulfilling.
+
+But the idea that buying is always smarter than renting is a myth. Run the numbers for your specific situation, be honest about how long you'll stay, and don't let anyone pressure you into one of the largest financial decisions of your life before you're ready.
+
+[Build your financial foundation with our Wealth Building course →](/courses/wealth-building)
+    `,
+  },
+
+  "how-to-invest-in-your-20s": {
+    title: "How to Invest in Your 20s: A Step-by-Step Starter Plan",
+    description: "You don't need a lot of money or expertise to start investing. Here's a clear, step-by-step plan built for people in their 20s starting from zero.",
+    readTime: "7 min read",
+    content: `
+## Why Your 20s Are the Best Time to Start
+
+You have one asset in your 20s that no amount of money can buy later: time.
+
+Time is the engine of compound growth. A dollar invested at 22 does more work than a dollar invested at 32, because it has ten extra years to compound. Starting in your 20s — even with small amounts — produces dramatically better outcomes than waiting until your income is higher.
+
+This guide gives you a clear sequence to follow.
+
+## Step 1: Build a $1,000 Emergency Fund First
+
+Before investing a dollar in the market, have at least $1,000 in a high-yield savings account. This prevents you from selling investments at a loss the first time an unexpected expense hits.
+
+Open a high-yield savings account with Marcus by Goldman Sachs, Ally Bank, or SoFi — they pay 4–5% APY vs. 0.01% at big banks.
+
+## Step 2: Get Your Full Employer 401(k) Match
+
+If your employer matches 401(k) contributions, contribute at least enough to get the full match before investing anywhere else. A 50% or 100% match is an instant guaranteed return that no investment can beat.
+
+Log into your HR portal, find your 401(k) enrollment, and set your contribution to at least the match threshold.
+
+## Step 3: Open a Roth IRA
+
+A Roth IRA is the best investment account for most people in their 20s. You contribute after-tax dollars, and all growth and withdrawals in retirement are completely tax-free.
+
+At 22 earning $45,000, you're likely in the 22% tax bracket now. In retirement, your income from investments might be taxed at a lower rate — or not at all with a Roth.
+
+**How to open one:**
+1. Go to Fidelity, Vanguard, or Charles Schwab (all free, no minimums)
+2. Open a Roth IRA account
+3. Link your bank account
+4. Set up automatic monthly contributions
+
+The 2024 contribution limit is $7,000/year ($583/month). Contribute what you can — even $100/month makes a meaningful difference over 40 years.
+
+## Step 4: Choose What to Invest In
+
+For most people in their 20s, one fund does the job:
+
+**Fidelity:** FZROX (Total Market Index, 0% expense ratio)
+**Vanguard:** VTI (Total Stock Market ETF, 0.03% expense ratio)
+**Schwab:** SWTSX (Total Stock Market, 0.03% expense ratio)
+
+These funds hold thousands of companies. When you buy one share, you own a tiny piece of Apple, Microsoft, Amazon, and thousands of other companies simultaneously. Your risk is spread across the entire economy.
+
+Don't overthink the fund selection. Pick one total market index fund and stick with it.
+
+## Step 5: Automate Everything
+
+The biggest threat to long-term investing isn't market crashes — it's forgetting to contribute or pulling money out during a downturn.
+
+Set up automatic transfers from your bank account to your Roth IRA on payday. Treat it like a bill. You can't spend what you never see.
+
+Most brokerages let you set an automatic investment date and amount. Set it, then ignore it.
+
+## Step 6: Increase Contributions Over Time
+
+Start with whatever you can afford — even $50/month. Each time you get a raise, redirect half of it to investing before you adjust your lifestyle.
+
+Going from $50/month to $200/month over a few years is how most people build real wealth on normal salaries.
+
+## What Not to Do
+
+- **Don't try to pick individual stocks** — even professional fund managers fail to beat index funds consistently
+- **Don't check your portfolio daily** — it leads to emotional decisions that hurt returns
+- **Don't withdraw early** — the 10% penalty plus taxes make early withdrawal extremely costly
+- **Don't wait until you earn more** — the delay costs you more than the extra income gains
+
+## A Simple Example
+
+$200/month invested from age 22 to 65 at 7% average annual return:
+**Total invested: $100,800**
+**Portfolio at 65: ~$624,000**
+
+That's not a typo. $100,800 in contributions becomes over $600,000 — entirely because of compounding over 43 years.
+
+Start with what you have. Increase over time. Leave it alone.
+
+[Take our Investing 101 course to go deeper →](/courses/investing-101)
+    `,
+  },
+
+  "lifestyle-inflation": {
+    title: "Lifestyle Inflation: The Silent Killer of Wealth in Your 20s and 30s",
+    description: "Most people earn more as they get older but never feel richer. The culprit is lifestyle inflation — and learning to recognize it is the key to actually building wealth.",
+    readTime: "5 min read",
+    content: `
+## The Raise That Changed Nothing
+
+You land a $15,000 raise. You upgrade your apartment. You start eating out more. You buy a nicer car. You add a few more subscriptions.
+
+A year later, you're saving about the same percentage of your income as before the raise. The money just... went somewhere.
+
+This is lifestyle inflation — the unconscious expansion of your spending as your income grows. It's the reason most people never feel financially ahead, no matter how much more they earn.
+
+## Why It Happens
+
+Lifestyle inflation is a feature of being human, not a character flaw.
+
+When you earn more, you feel you deserve more. You compare yourself to peers who are also spending more. You adapt quickly to new comforts and forget what life was like before them.
+
+Psychologists call this hedonic adaptation — the tendency to return to a baseline level of happiness regardless of positive or negative life changes. The new apartment feels amazing for a few months. Then it's just where you live.
+
+## The Math of Lifestyle Inflation
+
+**Scenario A — No lifestyle inflation:**
+- Age 25 income: $55,000 → saves 15% ($8,250/year)
+- Age 35 income: $85,000 → still saves 15% ($12,750/year)
+- Age 45 income: $110,000 → still saves 15% ($16,500/year)
+
+**Scenario B — Lifestyle inflation:**
+- Age 25 income: $55,000 → saves 10% ($5,500/year)
+- Age 35 income: $85,000 → still saves 10% ($8,500/year — lifestyle expanded with income)
+- Age 45 income: $110,000 → still saves 10% ($11,000/year)
+
+Same income trajectory. At a 7% return, Scenario A builds roughly 50% more wealth by 65 — purely from maintaining a savings rate rather than letting spending expand.
+
+## The Expenses Most Likely to Inflate
+
+**Housing** — moving to a bigger, nicer place with every raise is the biggest source of lifestyle inflation. Housing eats 30–40% of most people's income.
+
+**Cars** — trading up to a newer, more expensive vehicle is common after raises and bonuses.
+
+**Food and dining** — restaurant spending and premium grocery habits are easy to inflate and hard to notice.
+
+**Subscriptions** — individually small, but they accumulate. The average American underestimates their subscription spending by 2–3x.
+
+**Travel** — going from budget travel to premium travel is one of the subtler, harder-to-reverse inflations.
+
+## How to Fight It Without Being Miserable
+
+The goal isn't to never improve your lifestyle — it's to be intentional about which improvements you actually choose.
+
+**The 50% rule:** When you get a raise, automatically direct at least 50% of the after-tax increase to savings or investments. Spend the other half however you want. You still improve your lifestyle, but you also capture the financial benefit of earning more.
+
+**Automate savings increases:** Set up a recurring increase in your 401(k) contribution percentage or investment transfers. If the money never hits your checking account, you don't feel like you're depriving yourself.
+
+**Audit your expenses annually:** Look at your spending from 2 years ago vs. today. If your income grew 15% but your spending grew 25%, you have lifestyle inflation to address.
+
+**Choose quality over quantity:** One truly meaningful upgrade (a nicer home in a neighborhood you love) beats five mediocre upgrades that don't actually improve your life much.
+
+## The Trap of "I'll Save More Later"
+
+The most dangerous version of lifestyle inflation isn't the apartment upgrade — it's the mindset that you'll start saving aggressively once you earn enough.
+
+There is no income level where people naturally feel like they have enough to start saving. Spending expands to meet income at every level.
+
+The people who build wealth aren't people who earn more. They're people who decided early that their savings rate wouldn't decrease as their income grew.
+
+[Build better financial habits in our Budgeting Basics course →](/courses/budgeting-basics)
+    `,
+  },
+
+  "understanding-taxes-first-job": {
+    title: "Understanding Your Taxes at Your First Job: W-4, Withholding, and Refunds",
+    description: "Taxes at your first job are confusing — W-4 forms, withholding, refunds, and tax brackets. Here's a plain-English breakdown of everything you need to know.",
+    readTime: "6 min read",
+    content: `
+## Why Your First Paycheck Is Always a Surprise
+
+You accepted a $55,000 salary. Your first paycheck shows up for $1,650 instead of the $2,292 you expected. Where did the rest go?
+
+Taxes. But not just one kind — several.
+
+Understanding what's being taken out and why helps you complete your W-4 correctly, plan your budget accurately, and make smarter decisions about retirement contributions and tax deductions.
+
+## What Gets Taken Out of Your Paycheck
+
+**Federal income tax** — the biggest deduction for most people. The rate depends on your income and tax bracket. In 2024, the brackets for single filers are:
+
+- 10% on income up to $11,600
+- 12% on income $11,601–$47,150
+- 22% on income $47,151–$100,525
+- And higher brackets above that
+
+Important: these are marginal rates. If you earn $50,000, you don't pay 22% on all of it. You pay 10% on the first $11,600, 12% on the next chunk, and 22% only on the income above $47,150.
+
+**Social Security tax** — 6.2% of your gross income up to $168,600 (2024 limit). Your employer pays another 6.2% on your behalf.
+
+**Medicare tax** — 1.45% of all gross income. No cap. Again, your employer matches this.
+
+**State income tax** — varies by state. Nine states have no income tax (Texas, Florida, Nevada, Washington, Wyoming, South Dakota, Alaska, Tennessee, New Hampshire). Others range from 2–13%.
+
+**Total FICA taxes (Social Security + Medicare):** 7.65% on your first paycheck chunk.
+
+## The W-4: What It Actually Does
+
+When you start a job, you fill out a W-4 form. This tells your employer how much federal income tax to withhold from each paycheck.
+
+The W-4 doesn't determine how much tax you owe — that's calculated when you file your return. It determines how much is withheld in advance throughout the year.
+
+**The goal:** have your withholding closely match your actual tax liability.
+
+If too much is withheld → you get a refund (the government held your money interest-free all year)
+If too little is withheld → you owe money when you file (plus potentially a penalty)
+
+## How to Fill Out Your W-4
+
+For most single people with one job and no other income:
+- Fill out your name, address, SSN, and filing status
+- Step 3: claim dependents if applicable (most first-jobbers have none)
+- Step 4: leave blank unless you have other income or deductions
+- Sign and date
+
+The IRS withholding estimator at irs.gov lets you calculate the right withholding if your situation is more complex.
+
+## Tax Refunds Are Not Free Money
+
+Getting a large refund feels great. But a large refund means you overpaid taxes throughout the year.
+
+A $3,000 refund means the government held $250/month of your money interest-free. If you'd kept that $250/month and invested it, you'd have earned returns on it all year.
+
+Ideally, you want your refund to be small — or owe a small amount — meaning your withholding closely matched your actual taxes.
+
+## Tax-Advantaged Accounts Reduce Your Tax Bill
+
+Contributing to a traditional 401(k) or HSA lowers your taxable income.
+
+**Example:** You earn $58,000. You contribute $6,000 to a traditional 401(k). Your taxable income drops to $52,000. At a 22% marginal rate, that's $1,320 less in taxes.
+
+Your take-home pay goes down by less than your contribution because the tax savings offset part of it.
+
+## Simple Tax Moves for Your First Job
+
+1. **Complete your W-4 accurately** — don't just write 0 everywhere without thinking
+2. **Contribute to your 401(k)** — reduces your taxable income now
+3. **Open a Roth IRA** — pay taxes now, withdraw tax-free in retirement
+4. **Keep records** — any deductible job expenses, student loan interest, charitable donations
+5. **File by April 15** — or request an extension (note: extension to file is not extension to pay)
+
+## When to See a Tax Professional
+
+Most first-job tax situations are simple enough to handle yourself with TurboTax or FreeTaxUSA. But consider professional help if you:
+
+- Have freelance or self-employment income
+- Received stock compensation or RSUs
+- Had a major life event (marriage, home purchase, large medical expenses)
+- Are confused about your state taxes
+
+For straightforward W-2 employees, DIY tax software is fine.
+
+[Learn more about first-job finances in our course →](/courses/first-job-finance)
+    `,
+  },
+
+  "how-to-save-money-in-your-20s": {
+    title: "How to Actually Save Money in Your 20s (Without Giving Up Everything Fun)",
+    description: "Saving money doesn't mean cutting out everything you enjoy. Here's a realistic approach to saving more without feeling deprived.",
+    readTime: "6 min read",
+    content: `
+## The Problem With Most Saving Advice
+
+Most saving advice tells you to cut out coffee, stop eating out, and cancel your subscriptions. Then your life gets boring, you last three weeks, and you give up.
+
+The problem isn't your discipline. It's the strategy. Cutting small pleasures is painful and produces modest results. The same energy spent optimizing your three biggest expenses produces 10x the savings with far less suffering.
+
+This is how to actually save more money — while keeping the parts of life that matter to you.
+
+## Start With Your Three Biggest Expenses
+
+For most people in their 20s, the three biggest expenses are:
+1. Housing (30–40% of income)
+2. Transportation (10–20% of income)
+3. Food (10–15% of income)
+
+These three categories typically consume 50–70% of your take-home pay. Small changes here produce large savings. Cutting Netflix saves $15/month. Moving to a slightly cheaper apartment saves $300/month.
+
+**Housing:** Having a roommate vs. living alone can save $500–$1,000/month in most cities. That's $6,000–$12,000/year — more than most people save by cutting every small expense combined.
+
+**Transportation:** A car is expensive. Monthly payment, insurance, maintenance, gas, and parking can easily run $700–$1,000/month. If public transit, biking, or car-sharing is viable in your city, the savings are significant.
+
+**Food:** The biggest lever here isn't eliminating restaurants — it's reducing food waste and cooking most meals at home. The average American throws away $1,500 in food per year. Meal planning cuts your grocery bill and your restaurant spending simultaneously.
+
+## The Savings Rate Goal
+
+Forget specific dollar amounts. Focus on percentage.
+
+- 10% savings rate: you're doing better than most Americans
+- 20% savings rate: you're on a strong track
+- 30%+ savings rate: you're building wealth aggressively
+
+If you make $48,000 take-home ($4,000/month) and save 20%, that's $800/month. At a 7% return, investing $800/month from age 25 to 65 produces over $2 million.
+
+The percentage matters more than the amount because it scales with your income automatically.
+
+## Automate First, Spend What's Left
+
+The traditional approach: earn money, pay expenses, save what's left.
+The problem: nothing is left.
+
+The better approach: earn money, automatically move savings to a separate account, spend what remains.
+
+Set up an automatic transfer to a high-yield savings account or investment account on payday — before you can spend it. Treat it like a bill. You adjust your spending to what's left rather than trying to resist spending first.
+
+This one change — automating savings — is the most effective behavioral shift in personal finance.
+
+## The Fun Budget
+
+Don't eliminate fun. Budget for it explicitly.
+
+Decide in advance how much you'll spend on restaurants, entertainment, travel, and hobbies each month. Put that number in your budget as a line item. Spend it guilt-free.
+
+When you have a specific allowance for fun spending, you spend it more intentionally. You stop the mindless small purchases and save the budget for things you actually enjoy.
+
+## High-Yield Savings Account
+
+If your savings are sitting in a traditional bank savings account earning 0.01% APY, you're leaving money on the table.
+
+High-yield savings accounts at online banks (Ally, Marcus, SoFi, Discover) pay 4–5% APY — 400x more than the national average.
+
+On $10,000 in savings:
+- Traditional bank: $1/year
+- High-yield savings: $450–500/year
+
+It takes 10 minutes to open one. The money is FDIC insured. There's no reason not to.
+
+## What to Do With Your Savings Once You Have Them
+
+Once you have 3 months of expenses in a high-yield savings account (your emergency fund), additional savings should be invested — not left in the savings account.
+
+Savings accounts preserve purchasing power against inflation. They don't build wealth. Investing in index funds over a long time horizon builds wealth.
+
+The order:
+1. Emergency fund (3 months expenses) → high-yield savings account
+2. 401(k) up to employer match → invest in index funds
+3. Roth IRA → invest in index funds
+4. Additional savings → taxable brokerage account
+
+## The One Mindset Shift That Changes Everything
+
+Stop asking "can I afford this?" Start asking "is this the best use of this money?"
+
+That $200 weekend trip isn't the question. The question is whether that $200 creates more value for you as a weekend trip or as an investment that compounds for 40 years.
+
+Sometimes the trip wins. Often it does — experiences matter. But making the trade-off conscious, rather than automatic, is what separates people who build wealth from people who wonder where their money went.
+
+[Start with our Budgeting Basics course →](/courses/budgeting-basics)
+    `,
+  },
 };
 
 export function generateStaticParams() {
@@ -809,6 +1505,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
   return (
     <main className="min-h-screen bg-white">
+      <Navbar />
       <nav className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
         <Link href="/" className="text-2xl font-bold" style={{ color: "#1e3a5f" }}>FinStart</Link>
         <div className="flex gap-4">
