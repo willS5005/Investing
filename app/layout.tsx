@@ -107,6 +107,8 @@ export default async function RootLayout({
                 <div className="space-y-2">
                   <Link href="/about" className="block text-sm text-gray-500 hover:text-gray-800 transition">About</Link>
                   <Link href="/pricing" className="block text-sm text-gray-500 hover:text-gray-800 transition">Pricing</Link>
+                  <Link href="/terms" className="block text-sm text-gray-500 hover:text-gray-800 transition">Terms of Service</Link>
+                  <Link href="/privacy" className="block text-sm text-gray-500 hover:text-gray-800 transition">Privacy Policy</Link>
                 </div>
               </div>
               <div>
