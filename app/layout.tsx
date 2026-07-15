@@ -20,6 +20,9 @@ const geistMono = localFont({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.getfinstart.com";
 
 export const metadata: Metadata = {
+  verification: {
+    google: "AFPAaxZs-7VxaUutiUl5vMt_scSgiCDGFaTGbTunmkY",
+  },
   metadataBase: new URL(siteUrl),
   title: {
     default: "FinStart — Personal Finance for Young Adults",
