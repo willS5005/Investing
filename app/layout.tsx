@@ -17,7 +17,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://investing-9otnx1jsn-willsobotka2005-6780s-projects.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.getfinstart.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

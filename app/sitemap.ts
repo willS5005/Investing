@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://investing-9otnx1jsn-willsobotka2005-6780s-projects.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.getfinstart.com";
 
 const articleSlugs = [
   "build-your-first-budget",
@@ -13,6 +13,14 @@ const articleSlugs = [
   "emergency-fund-guide",
   "first-job-money-moves",
   "build-credit-at-18",
+  "how-to-negotiate-your-salary",
+  "compound-interest-explained",
+  "what-is-a-401k",
+  "renting-vs-buying-a-home",
+  "how-to-invest-in-your-20s",
+  "lifestyle-inflation",
+  "understanding-taxes-first-job",
+  "how-to-save-money-in-your-20s",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/courses`, priority: 0.9, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/tools`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/pricing`, priority: 0.8, changeFrequency: "monthly" as const },
+    { url: `${siteUrl}/about`, priority: 0.6, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/signup`, priority: 0.7, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/tools/budget-calculator`, priority: 0.7, changeFrequency: "monthly" as const },
   ];
