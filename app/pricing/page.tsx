@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Navbar from "@/app/components/Navbar";
 
 const MONTHLY_PRICE_ID = "price_1Tm2UGIDNA37hrc14cCgbkSj";
 const YEARLY_PRICE_ID = "price_1Tm2H9IDNA37hrc1CrCZ5vbF";
@@ -38,6 +39,7 @@ export default function PricingPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
+      <Navbar />
       <div className="max-w-4xl mx-auto px-5 py-10 md:py-16">
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#1e3a5f" }}>Simple, Transparent Pricing</h1>
