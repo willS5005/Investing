@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@/lib/supabase";
+import { loadProgress, saveLesson } from "@/lib/lessonProgress";
 
 const lessons = [
   {
@@ -464,6 +466,15 @@ export default function BudgetingBasicsPage() {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
 
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) {
+        loadProgress("budgeting-basics").then(setCompletedLessons);
+      }
+    });
+  }, []);
+
   const lesson = lessons[activeLesson];
 
   const handleAnswer = (questionIndex: number, answerIndex: number) => {
@@ -475,6 +486,7 @@ export default function BudgetingBasicsPage() {
     setQuizSubmitted(true);
     if (!completedLessons.includes(activeLesson)) {
       setCompletedLessons((prev) => [...prev, activeLesson]);
+      saveLesson("budgeting-basics", activeLesson);
     }
   };
 

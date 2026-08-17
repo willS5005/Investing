@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 import { useRequireAuth } from "@/lib/useAuth";
+import { loadProgress, saveLesson } from "@/lib/lessonProgress";
 
 const lessons = [
   {
@@ -507,6 +508,7 @@ export default function Investing101Page() {
     supabase.from("user_subscriptions").select("status").eq("user_id", user.id).single().then(({ data }) => {
       if (data?.status !== "premium") { router.push("/courses/premium-gate"); return; }
       setChecking(false);
+      loadProgress("investing-101").then(setCompletedLessons);
     });
   }, [ready, user, router]);
 
@@ -524,6 +526,7 @@ export default function Investing101Page() {
   const handleComplete = () => {
     if (!completedLessons.includes(activeLesson)) {
       setCompletedLessons([...completedLessons, activeLesson]);
+      saveLesson("investing-101", activeLesson);
     }
     setQuizAnswers({});
     setQuizSubmitted(false);

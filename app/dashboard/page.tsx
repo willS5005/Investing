@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 import { useRequireAuth } from "@/lib/useAuth";
+import { loadProgress } from "@/lib/lessonProgress";
 
 const tips = [
   "Automating your savings on payday means you never have to think about it.",
@@ -17,11 +18,11 @@ const tips = [
 ];
 
 const courses = [
-  { title: "Budgeting Basics", icon: "💰", lessons: 5, href: "/courses/budgeting-basics", free: true, color: "bg-emerald-50", progress: 0 },
-  { title: "Investing 101", icon: "📈", lessons: 6, href: "/courses/investing-101", free: false, color: "bg-blue-50", progress: 0 },
-  { title: "Wealth Building", icon: "🏦", lessons: 7, href: "/courses/wealth-building", free: false, color: "bg-purple-50", progress: 0 },
-  { title: "Student Finance", icon: "🎓", lessons: 5, href: "/courses/student-finance", free: false, color: "bg-pink-50", progress: 0 },
-  { title: "First Job Finance", icon: "🎯", lessons: 5, href: "/courses/first-job-finance", free: false, color: "bg-orange-50", progress: 0 },
+  { title: "Budgeting Basics", slug: "budgeting-basics", icon: "💰", lessons: 5, href: "/courses/budgeting-basics", free: true, color: "bg-emerald-50" },
+  { title: "Investing 101", slug: "investing-101", icon: "📈", lessons: 6, href: "/courses/investing-101", free: false, color: "bg-blue-50" },
+  { title: "Wealth Building", slug: "wealth-building", icon: "🏦", lessons: 7, href: "/courses/wealth-building", free: false, color: "bg-purple-50" },
+  { title: "Student Finance", slug: "student-finance", icon: "🎓", lessons: 5, href: "/courses/student-finance", free: false, color: "bg-pink-50" },
+  { title: "First Job Finance", slug: "first-job-finance", icon: "🎯", lessons: 5, href: "/courses/first-job-finance", free: false, color: "bg-orange-50" },
 ];
 
 const toolsList = [
@@ -46,15 +47,23 @@ export default function DashboardPage() {
   const [user, setUser] = useState<{ email?: string; user_metadata?: { full_name?: string } } | null>(null);
   const [isPremium, setIsPremium] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [courseProgress, setCourseProgress] = useState<Record<string, number>>({});
   const tip = tips[new Date().getDay() % tips.length];
 
   useEffect(() => {
     if (!ready || !authUser) return;
     const supabase = createClient();
     setUser(authUser);
-    supabase.from("user_subscriptions").select("status").eq("user_id", authUser.id).single().then(({ data: sub }) => {
+    supabase.from("user_subscriptions").select("status").eq("user_id", authUser.id).single().then(async ({ data: sub }) => {
       setIsPremium(sub?.status === "premium");
       setLoading(false);
+      // Load progress for all courses in parallel
+      const results = await Promise.all(
+        courses.map((c) => loadProgress(c.slug).then((done) => ({ slug: c.slug, pct: Math.round((done.length / c.lessons) * 100) })))
+      );
+      const map: Record<string, number> = {};
+      results.forEach((r) => { map[r.slug] = r.pct; });
+      setCourseProgress(map);
     });
   }, [ready, authUser]);
 
@@ -180,11 +189,11 @@ export default function DashboardPage() {
                           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                             <div
                               className="h-1.5 bg-emerald-400 rounded-full transition-all"
-                              style={{ width: `${course.progress}%` }}
+                              style={{ width: `${courseProgress[course.slug] ?? 0}%` }}
                             />
                           </div>
                           <div className="text-xs text-gray-400 mt-0.5">
-                            {course.progress === 0 ? "Not started" : `${course.progress}% complete`}
+                            {(courseProgress[course.slug] ?? 0) === 0 ? "Not started" : `${courseProgress[course.slug]}% complete`}
                           </div>
                         </div>
                       )}

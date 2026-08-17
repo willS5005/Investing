@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 import { useRequireAuth } from "@/lib/useAuth";
+import { loadProgress, saveLesson } from "@/lib/lessonProgress";
 
 const lessons = [
   {
@@ -361,6 +362,7 @@ export default function FirstJobFinancePage() {
     supabase.from("user_subscriptions").select("status").eq("user_id", user.id).single().then(({ data }) => {
       if (data?.status !== "premium") { router.push("/courses/premium-gate"); return; }
       setChecking(false);
+      loadProgress("first-job-finance").then(setCompletedLessons);
     });
   }, [ready, user, router]);
 
@@ -370,7 +372,10 @@ export default function FirstJobFinancePage() {
   const progress = (completedLessons.length / lessons.length) * 100;
 
   const handleComplete = () => {
-    if (!completedLessons.includes(activeLesson)) setCompletedLessons([...completedLessons, activeLesson]);
+    if (!completedLessons.includes(activeLesson)) {
+      setCompletedLessons([...completedLessons, activeLesson]);
+      saveLesson("first-job-finance", activeLesson);
+    }
     setQuizAnswers({});
     setQuizSubmitted(false);
     if (activeLesson < lessons.length - 1) setActiveLesson(activeLesson + 1);
